@@ -1,0 +1,88 @@
+<div class="container">
+    <div class="row">
+      <div class="icontainer">
+    <div  *ngIf="pass == true;" class="foricon1">
+      <img src="{{ this.weatherData?.current.weather_icons}}" >
+    </div>
+    
+    <div  *ngIf="this.weatherData?.current.temperature < 10 && this.weatherData?.current.temperature != null;" class="foricon2">
+      <img src="../../assets/snowflake.jpg" >
+    </div>
+    </div>
+    
+        <div class="wrapper">
+            <div class="webdesigntuts-workshop">
+      <div class="col-md-61"><h3 class="text-center ">Search for Weather:</h3>
+        <form  [formGroup]="viewSearchForm" (ngSubmit)="sendToAPIXU(viewSearchForm.value)">
+            <div class="form-group">
+              <input
+                class="form-control"
+                type="text"
+                id="weatherLocation"
+                aria-describedby="weatherLocation"
+                placeholder="Input Location"
+                formControlName="location" 
+              />
+             </div>
+            
+            
+              <button type="submit" class="btn btn-success btn-md">
+                Search</button>
+        </form>
+                </div>
+                </div>
+        </div>
+        <div class="wrapper2">
+        <div class="col-md-62">
+          <h2 style="text-align:center;" class="text-center my-4">Weather Details:</h2>
+          <p class="text-center">
+            Current Time and Date: {{ this.weatherData?.location.localtime}}.
+          </p>
+          <p class="text-center">
+            Country: {{ this.weatherData?.location.country}}
+          </p>
+          <p class="text-center">
+            Latitude: {{ this.weatherData?.location.lat}}
+          </p>
+          <p class="text-center">
+            Region: {{ this.weatherData?.location.region}}
+          </p>
+          <p class="text-center">
+            Timezone: {{ this.weatherData?.location.timezone_id}}
+          </p>
+          <p class="text-center">
+            Current Weather Description: {{ this.weatherData?.current.weather_descriptions}}.
+          </p>
+          <p class="text-center">
+            Temperature in Degrees Celsius: {{ this.weatherData?.current.temperature }}
+          </p>
+          <p class="text-center">
+            Feels like in Degrees Celsius: {{ this.weatherData?.current.feelslike
+            }}
+          </p>
+          <p class="text-center">
+            Current Humidity: {{ this.weatherData?.current.humidity }}
+          </p>
+          <p class="text-center">
+            Current Visibility: {{
+            this.weatherData?.current.visibility }}
+          </p>
+          <p class="text-center">
+            Current Pressure: {{ this.weatherData?.current.pressure }}
+          </p>
+          <p class="text-center">
+            Current Precipitation: {{ this.weatherData?.current.precip }}
+          </p>
+          <p class="text-center">
+            Wind Degree: {{ this.weatherData?.current.wind_degree }}
+          </p>
+          <p class="text-center">
+            Wind Speed: {{ this.weatherData?.current.wind_speed}}
+          </p>
+          <p class="text-center">
+            Wind Direction: {{ this.weatherData?.current.wind_dir}}
+          </p>
+          </div>
+        </div>
+    </div>
+  </div>
